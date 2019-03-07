@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FakeReddit.Models;
-using DbConnection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 
