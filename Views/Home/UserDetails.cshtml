@@ -1,0 +1,7 @@
+@model User
+
+<h2>Details for User #@Model.UserId</h2>
+<hr>
+<h3><strong>Name</strong> @Model.FirstName @Model.LastName</h3>
+<h3><strong>Date Joined</strong> @Model.CreatedAt</h3>
+<h3><strong>Number of Posts</strong> @Model.Posts.Count</h3>

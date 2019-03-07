@@ -1,0 +1,16 @@
+﻿.log-reg-form {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+    width: 45%;
+}
+
+.post {
+    width: 30%;
+    display: inline-block;
+    background-color: rgb(161, 161, 161);
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+}

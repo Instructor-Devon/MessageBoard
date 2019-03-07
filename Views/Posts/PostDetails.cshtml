@@ -1,0 +1,40 @@
+@model Post
+
+<h1>POST DETAILS!!! (for Post ID @Model.PostId)</h1>
+<h3>Topic: @Model.Topic</h3>
+<p>@Model.Content</p>
+
+<a href="/delete/@Model.PostId"><button class="btn btn-danger">Delete</button></a>
+
+<hr>
+<h2>Edit this Post:</h2>
+<form asp-action="Update" asp-route-postId="@Model.PostId" method="post">
+    <div class="form-group">
+        <span asp-validation-for="Topic"></span>
+        <label asp-for="Topic"></label>
+        <input asp-for="Topic">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Content"></span>
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content"></textarea>
+    </div>
+    <button>Update Post!</button>
+
+<hr>
+<h3>Vote History</h3>
+@foreach(var vote in Model.Votes)
+{
+    string result;
+    if(vote.IsUpvote)
+    {
+        result = "liked";
+    }
+    else 
+    {
+        result = "didn't like";
+    }
+    <p>@vote.Voter.FirstName @result this post!</p>
+}
+
+</form>

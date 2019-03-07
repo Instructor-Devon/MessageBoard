@@ -1,0 +1,29 @@
+﻿@model List<Post>
+<h1>All posts!</h1>
+<h3><a href="/posts/new">Add a post!</a></h3>
+@foreach(var post in Model)
+{
+    <div class="post">
+        <h3>@post.Topic</h3>
+        <hr>
+        <h4>@post.Content</h4>
+        <p>Posted by <a href="/user/@post.UserId">@post.Creator.FirstName @post.Creator.LastName</a></p>
+        <a href='/posts/@post.PostId'>View post details</a>
+        <hr>
+        @{
+            if(post.UserId == ViewBag.UserId)
+            {
+                <a href="#">DELETE</a>
+            }
+            else if(post.Votes.Any(v => v.UserId == ViewBag.UserId))
+            {
+                <p>You already voted on this Post!</p>
+            }
+            else
+            {
+                <a href="/posts/vote/@post.PostId/1"><button><i class="glyphicon glyphicon-arrow-up"></i></button></a>
+                <a href="/posts/vote/@post.PostId/2"><button><i class="glyphicon glyphicon-arrow-down"></i></button></a>
+            }
+        }
+    </div>
+}
